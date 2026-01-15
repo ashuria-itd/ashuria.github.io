@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名古屋城：徳川の威信と鉄壁の要塞</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #111;
+            --gold: #C5A059;
+            --accent: #8E0000;
+            --bg: #F9F9F9;
+            --text: #333;
+        }
+        body { margin: 0; padding: 0; font-family: "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+        h1, h2, h3 { font-family: "Shippori Mincho", serif; }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1200x600/000000/C5A059?text=NAGOYA+CASTLE'); 
+            /* ※本来は名古屋城の画像URLを指定 */
+            background-size: cover; background-position: center;
+            height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px;
+        }
+        .hero h1 { font-size: 3rem; margin: 0; text-shadow: 0 4px 10px rgba(0,0,0,0.5); border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block; }
+        .hero p { font-size: 1.2rem; margin-top: 20px; font-weight: 300; letter-spacing: 0.1em; }
+
+        /* Content */
+        .container { max-width: 800px; margin: -50px auto 50px; padding: 0 20px; position: relative; z-index: 10; }
+        
+        .intro-card { background: white; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--gold); margin-bottom: 40px; }
+        .intro-text { font-size: 1.1rem; text-align: justify; }
+        
+        .section-title { font-size: 2rem; color: var(--primary); border-left: 8px solid var(--primary); padding-left: 20px; margin: 60px 0 30px; display: flex; align-items: center; }
+        .section-title span { color: var(--gold); font-size: 1rem; margin-left: 15px; font-weight: normal; font-family: sans-serif; }
+
+        .point-card { background: white; border-radius: 8px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .point-card:hover { transform: translateY(-5px); }
+        .point-content { padding: 30px; }
+        .point-head { color: var(--accent); font-weight: bold; font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 10px; display: block; }
+        .point-title { font-size: 1.5rem; margin: 0 0 15px; font-weight: bold; }
+        
+        /* Mania Box */
+        .mania-box { background: #222; color: #ddd; padding: 25px; margin-top: 20px; border-left: 4px solid var(--gold); font-size: 0.95rem; }
+        .mania-label { color: var(--gold); font-weight: bold; display: block; margin-bottom: 5px; font-family: "Shippori Mincho", serif; }
+
+        .back-btn { display: block; width: 200px; margin: 50px auto; text-align: center; padding: 15px; background: var(--primary); color: var(--gold); text-decoration: none; font-weight: bold; border-radius: 50px; transition: 0.3s; }
+        .back-btn:hover { background: var(--gold); color: var(--primary); }
+
+        @media (max-width: 600px) { .hero h1 { font-size: 2rem; } .intro-card { padding: 25px; } }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div>
+        <h1>名古屋城</h1>
+        <p>近世城郭の到達点。徳川の威信をかけた鉄壁の要塞。</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="intro-card">
+        <p class="intro-text">
+            名古屋城の本質は「美しさ」ではない。<br>
+            それは、豊臣包囲網の最終兵器として徳川家康が築いた、当時の最高峰の土木技術と軍事力が結集した<strong>「圧力の装置」</strong>である。巨大な石垣、緻密な防御網、そして豪華絢爛な御殿。すべてが「徳川に逆らうな」と語りかけてくる。
+        </p>
+    </div>
+
+    <div class="section-title">01. 石垣<span>STONE WALLS</span></div>
+    <div class="point-card">
+        <div class="point-content">
+            <span class="point-head">土木工学の極致</span>
+            <h3 class="point-title">加藤清正の「扇の勾配」</h3>
+            <p>天守台の石垣を見上げてほしい。上に行くほど反り返る、その美しい曲線は「扇の勾配」と呼ばれる。これは単なる装飾ではなく、敵の侵入を阻み、かつ巨大な天守の重量を分散させるための力学的必然が生んだ機能美である。</p>
+            <div class="mania-box">
+                <span class="mania-label">🧐 マニアの視点</span>
+                隅石（すみいし）の「算木積み」の精緻さに注目せよ。一分の隙もない加工技術は当時のハイテク産業そのもの。清正が自分の担当場所の石に刻んだ刻印を探すのも一興だ。
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">02. 虎口<span>KILL ZONE</span></div>
+    <div class="point-card">
+        <div class="point-content">
+            <span class="point-head">殺意高き防御システム</span>
+            <h3 class="point-title">鉄壁の「枡形虎口」</h3>
+            <p>正門や東門を入った直後にある、直角に曲がえられた四角い空間。ここは敵を閉じ込め、三方向の多聞櫓から鉄砲と弓矢で十字砲火を浴びせるための「キルゾーン（殲滅地帯）」である。</p>
+            <div class="mania-box">
+                <span class="mania-label">🧐 マニアの視点</span>
+                特に「表二之門」周辺の鉄壁ぶりを見てほしい。「ここに入ったら絶対に生きて帰れない」という設計者の強烈な殺意を肌で感じることができるはずだ。
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">03. 本丸御殿<span>PALACE</span></div>
+    <div class="point-card">
+        <div class="point-content">
+            <span class="point-head">武家の格式と空間演出</span>
+            <h3 class="point-title">政治装置としての「豪華絢爛」</h3>
+            <p>復元された本丸御殿は、当時の工法で忠実に再現されている。部屋が進むごとに天井の格が上がり、金箔の量が増えていく。これは芸術ではなく、徳川の力を諸大名に見せつけるための「政治的威圧装置」なのだ。</p>
+            <div class="mania-box">
+                <span class="mania-label">🧐 マニアの視点</span>
+                将軍を迎える「上洛殿」の天井や欄間彫刻を見よ。あまりの豪華さに目がくらむが、それこそが狙い。空間そのものが身分制度を視覚化しているのだ。
+            </div>
+        </div>
+    </div>
+
+    <a href="nagoya.html" class="back-btn">旅のしおりに戻る</a>
+</div>
+
+</body>
+</html>
