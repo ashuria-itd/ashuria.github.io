@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAGOYA TRIP GUIDE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
+        :root {
+            --primary: #0F2350; /* 濃紺 */
+            --accent: #C5A059; /* ゴールド */
+            --bg: #F5F5F7;
+            --text: #333;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "Noto Sans JP", "Helvetica Neue", sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, #0F2350 0%, #1a3a7a 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: "旅のしおり";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8rem;
+            opacity: 0.05;
+            font-weight: bold;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            margin-top: 10px;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: -30px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.05em;
+        }
+        
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background-color: var(--accent);
+            margin-right: 12px;
+            border-radius: 2px;
+        }
+
+        /* Timeline Design */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 10px;
+            bottom: 0;
+            width: 2px;
+            background: #e0e0e0;
+        }
+
+        .event {
+            position: relative;
+            margin-bottom: 35px;
+            padding-left: 25px;
+        }
+
+        .event::after {
+            content: '';
+            position: absolute;
+            left: -20px; /* Adjust based on padding */
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--white);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            z-index: 2;
+        }
+        
+        .event.highlight::after {
+            border-color: var(--accent);
+            background: var(--accent);
+        }
+
+        .time {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .activity {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .detail {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .transport {
+            font-size: 0.8rem;
+            color: #888;
+            background: #f0f2f5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        
+        .tag-food { background-color: #fff3cd; color: #856404; }
+        .tag-spot { background-color: #d1ecf1; color: #0c5460; }
+        .tag-stay { background-color: #d4edda; color: #155724; }
+
+        /* Spot & Food Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .info-box {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .info-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-color: var(--accent);
+        }
+
+        .info-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .badge {
+            font-size: 0.7rem;
+            background: var(--primary);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .info-desc {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .memo-box {
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        .memo-box strong { color: var(--accent); }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .container { margin-top: -20px; }
+            .card { padding: 20px; }
+        }
+        
+        @media print {
+            body { background: white; }
+            .container { margin-top: 0; box-shadow: none; }
+            .card { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+            header { background: white; color: black; box-shadow: none; border-bottom: 2px solid #000; }
+            header::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>NAGOYA TRIP</h1>
+    <div class="subtitle">History, Culture & Gourmet Guide<br></div>
+</header>
+
+<div class="container">
+
+    <div class="card" style="background: var(--primary); color: white;">
+        <div style="display: flex; align-items: flex-start;">
+            <div style="font-size: 1.5rem; margin-right: 15px;">💡</div>
+            <div>
+                <strong style="color: var(--accent); display: block; margin-bottom: 5px;">TRAVEL TIPS</strong>
+                <div style="font-size: 0.9rem; opacity: 0.9;">
+                    ・荷物はホテルの無料クロークをフル活用して身軽に。<br>
+                    ・食事時間は混雑状況に合わせて柔軟にずらしてOK。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>DAY 1 <span style="font-size: 0.9rem; margin-left: auto; color: #888; font-weight: normal;">/ 名古屋市内</span></h2>
+        
+        <div class="timeline">
+            <div class="event">
+                <span class="time">11:00</span>
+                <span class="activity">名古屋駅 到着</span>
+                <div class="detail">コインロッカーではなく、まずホテルへ。</div>
+            </div>
+            
+            <div class="event">
+                <span class="time">11:30</span>
+                <span class="activity">ホテルで荷物預け</span>
+                <span class="tag tag-stay">Check-in前</span>
+                <div class="detail">身軽になって観光スタート。</div>
+            </div>
+
+            <div class="event highlight">
+                <span class="time">12:00</span>
+                <span class="activity">昼食：ひつまぶし</span>
+                <span class="tag tag-food">Gourmet</span>
+                <div class="detail">「まるや本店」など名駅周辺で。</div>
+            </div>
+
+            <div class="event">
+                <span class="time">13:20</span>
+                <span class="activity">観光①：名古屋城</span>
+                <span class="tag tag-spot">History</span>
+                <div class="transport">🚇 名古屋駅 → 地下鉄東山線・名城線 (約20分)</div>
+                <div class="detail">本丸御殿をメインにゆったり見学（約2時間）。</div>
+            </div>
+
+            <div class="event">
+                <span class="time">15:50</span>
+                <span class="activity">観光②：徳川美術館</span>
+                <span class="tag tag-spot">Art</span>
+                <div class="transport">🚌 名古屋城 → 市営バス基幹2 (約20分)</div>
+                <div class="detail">大名文化の至宝を落ち着いて鑑賞。</div>
+            </div>
+
+            <div class="event highlight">
+                <span class="time">18:00</span>
+                <span class="activity">夕食：味噌煮込みうどん</span>
+                <span class="tag tag-food">Gourmet</span>
+                <div class="detail">「山本屋本店」でまろやかな味わいを堪能。</div>
+            </div>
+
+            <div class="event">
+                <span class="time">20:00</span>
+                <span class="activity">夜景：ミッドランドスクエア</span>
+                <span class="tag tag-spot">View</span>
+                <div class="detail">スカイプロムナードで地上220mの夜景散策。</div>
+            </div>
+            
+            <div class="event">
+                <span class="time">22:00</span>
+                <span class="activity">ホテル泊</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>DAY 2 <span style="font-size: 0.9rem; margin-left: auto; color: #888; font-weight: normal;">/ 犬山・有松</span></h2>
+        
+        <div class="timeline">
+            <div class="event highlight">
+                <span class="time">08:00</span>
+                <span class="activity">モーニング</span>
+                <span class="tag tag-food">Gourmet</span>
+                <div class="detail">「コンパル」などで名古屋の朝文化を体験。</div>
+            </div>
+            
+            <div class="event">
+                <span class="time">10:00</span>
+                <span class="activity">チェックアウト & 移動</span>
+                <div class="detail">荷物はホテルに預ける。</div>
+                <div class="transport">🚆 名鉄名古屋駅 → 犬山遊園駅 (特急 約35分)</div>
+            </div>
+
+            <div class="event">
+                <span class="time">10:40</span>
+                <span class="activity">観光③：犬山城 & 城下町</span>
+                <span class="tag tag-spot">National Treasure</span>
+                <div class="detail">国宝天守からの絶景と、城下町散策。</div>
+            </div>
+
+            <div class="event highlight">
+                <span class="time">13:00</span>
+                <span class="activity">昼食：城下町食べ歩き</span>
+                <span class="tag tag-food">Light Meal</span>
+                <div class="detail">串もの、田楽、五平餅など。</div>
+            </div>
+
+            <div class="event">
+                <span class="time">13:30</span>
+                <span class="activity">移動：犬山 → 有松</span>
+                <div class="transport">🚆 名鉄犬山線 → 名古屋本線 (約1時間)</div>
+            </div>
+
+            <div class="event">
+                <span class="time">14:30</span>
+                <span class="activity">観光④：有松の街並み</span>
+                <span class="tag tag-spot">Heritage</span>
+                <div class="detail">日本遺産・有松絞りの古い町並みを散策。</div>
+            </div>
+
+            <div class="event">
+                <span class="time">15:30</span>
+                <span class="activity">解散</span>
+                <div class="detail">名古屋駅で荷物をピックアップして帰路へ。</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>HIGHLIGHTS & FOOD</h2>
+        
+        <div class="grid">
+            <a href="nagoya_castle.html" style="text-decoration: none; color: inherit;">
+    <div class="info-box">
+        <div class="info-title">名古屋城 <span class="badge">Day 1</span> <span style="font-size:0.8em; color:#C5A059;">▶ 詳細を見る</span></div>
+        <div class="info-desc">
+            見どころは復元された<strong>本丸御殿</strong>。豪華絢爛な障壁画は圧巻。天守閣は外観のみですが、加藤清正の「清正石」など石垣も見どころ。
+        </div>
+    </div>
+</a>
+
+            <div class="info-box">
+                <div class="info-title">徳川美術館 <span class="badge">Day 1</span></div>
+                <div class="info-desc">
+                    尾張徳川家の宝物を展示。『源氏物語絵巻』(国宝)など大名文化の粋を感じられます。隣接する徳川園も時間があればぜひ。
+                </div>
+            </div>
+
+<a href="inuyama_castle.html" style="text-decoration: none; color: inherit;">
+    <div class="info-box">
+        <div class="info-title">犬山城 <span class="badge">Day 2</span> <span style="font-size:0.8em; color:#C5A059;">▶ 詳細を見る</span></div>
+        <div class="info-desc">
+            現存最古級の<strong>国宝天守</strong>。階段は急ですが、最上階からの木曽川の眺めは最高です。城下町の三光稲荷神社も人気。
+        </div>
+    </div>
+</a>           
+            <div class="info-box">
+                <div class="info-title">有松の街並み <span class="badge">Day 2</span></div>
+                <div class="info-desc">
+                    400年の歴史を持つ絞りの町。東海道の面影を残す商家が立ち並び、フォトジェニックで落ち着いた雰囲気が魅力。
+                </div>
+            </div>
+
+            <div class="info-box" style="border-left: 3px solid var(--accent);">
+                <div class="info-title">ひつまぶし <span class="badge" style="background:var(--accent)">Lunch</span></div>
+                <div class="info-desc">
+                    <strong>「まるや本店」</strong><br>
+                    1.そのまま 2.薬味で 3.お茶漬けで。3度美味しい名古屋の王道グルメ。
+                </div>
+            </div>
+
+            <div class="info-box" style="border-left: 3px solid var(--accent);">
+                <div class="info-title">味噌煮込みうどん <span class="badge" style="background:var(--accent)">Dinner</span></div>
+                <div class="info-desc">
+                    <strong>「山本屋本店」</strong><br>
+                    ご希望の「まろやか味」。土鍋の蓋を取り皿にして、フーフーしながらどうぞ。
+                </div>
+            </div>
+            
+            <div class="info-box" style="border-left: 3px solid var(--accent);">
+                <div class="info-title">モーニング <span class="badge" style="background:var(--accent)">Morning</span></div>
+                <div class="info-desc">
+                    <strong>「コンパル」</strong><br>
+                    レトロな雰囲気でエビフライサンドや小倉トーストを。
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2025 Nagoya Trip Guide designed by AI
+</footer>
+
+</body>
+</html>
