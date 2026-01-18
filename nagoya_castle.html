@@ -18,15 +18,15 @@
         body { margin: 0; padding: 0; font-family: "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
         h1, h2, h3 { font-family: "Shippori Mincho", serif; }
         
-        /* Hero Section */
+        /* Hero Section with Generated Image */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1200x600/000000/C5A059?text=NAGOYA+CASTLE'); 
-            /* ※本来は名古屋城の画像URLを指定 */
+            /* 生成された画像を使用 */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image_0.png'); 
             background-size: cover; background-position: center;
             height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px;
         }
-        .hero h1 { font-size: 3rem; margin: 0; text-shadow: 0 4px 10px rgba(0,0,0,0.5); border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block; }
-        .hero p { font-size: 1.2rem; margin-top: 20px; font-weight: 300; letter-spacing: 0.1em; }
+        .hero h1 { font-size: 3rem; margin: 0; text-shadow: 0 4px 10px rgba(0,0,0,0.8); border-bottom: 2px solid var(--gold); padding-bottom: 10px; display: inline-block; }
+        .hero p { font-size: 1.2rem; margin-top: 20px; font-weight: 300; letter-spacing: 0.1em; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
 
         /* Content */
         .container { max-width: 800px; margin: -50px auto 50px; padding: 0 20px; position: relative; z-index: 10; }
@@ -43,9 +43,26 @@
         .point-head { color: var(--accent); font-weight: bold; font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 10px; display: block; }
         .point-title { font-size: 1.5rem; margin: 0 0 15px; font-weight: bold; }
         
-        /* Mania Box */
         .mania-box { background: #222; color: #ddd; padding: 25px; margin-top: 20px; border-left: 4px solid var(--gold); font-size: 0.95rem; }
         .mania-label { color: var(--gold); font-weight: bold; display: block; margin-bottom: 5px; font-family: "Shippori Mincho", serif; }
+
+        /* Map Section */
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 
         .back-btn { display: block; width: 200px; margin: 50px auto; text-align: center; padding: 15px; background: var(--primary); color: var(--gold); text-decoration: none; font-weight: bold; border-radius: 50px; transition: 0.3s; }
         .back-btn:hover { background: var(--gold); color: var(--primary); }
@@ -109,7 +126,18 @@
         </div>
     </div>
 
-    <a href="nagoya.html" class="back-btn">旅のしおりに戻る</a>
+    <div class="section-title">04. アクセス・地図<span>ACCESS & MAP</span></div>
+    <div class="point-card">
+        <div class="point-content">
+            <h3 class="point-title">場所と行き方</h3>
+            <p>地下鉄名城線「名古屋城駅」7番出口より徒歩5分。正門から入場します。</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.426875224137!2d136.8964089757668!3d35.18475097275177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600376d712577557%3A0x623c09331004b910!2z5ZCN5Y-k5bGL5Z-O!5e0!3m2!1sja!2sjp!4v1713426683985!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <a href="shiori.html" class="back-btn">旅のしおりに戻る</a>
 </div>
 
 </body>
