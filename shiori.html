@@ -13,6 +13,7 @@
             --bg: #F5F5F7;
             --text: #333;
             --white: #ffffff;
+            --alert: #d9534f;
         }
 
         body {
@@ -25,41 +26,35 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Hero Section */
+        /* Hero Section with Image */
         header {
-            background: linear-gradient(135deg, #0F2350 0%, #1a3a7a 100%);
+            /* 保存した画像ファイル名を指定してください */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('header_bg.png');
+            background-size: cover;
+            background-position: center;
             color: var(--white);
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             position: relative;
             overflow: hidden;
-        }
-
-        header::after {
-            content: "旅のしおり";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 8rem;
-            opacity: 0.05;
-            font-weight: bold;
-            white-space: nowrap;
-            pointer-events: none;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
         h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
         .subtitle {
-            font-size: 1rem;
-            margin-top: 10px;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            opacity: 0.95;
             font-weight: 300;
             letter-spacing: 0.05em;
         }
@@ -103,6 +98,22 @@
             border-radius: 2px;
         }
 
+        /* Ticket Info Box */
+        .ticket-box {
+            background: #fdf8e4;
+            border: 2px dashed var(--accent);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        .ticket-title {
+            font-weight: bold;
+            color: #8a6d3b;
+            display: block;
+            margin-bottom: 5px;
+        }
+
         /* Timeline Design */
         .timeline {
             position: relative;
@@ -128,7 +139,7 @@
         .event::after {
             content: '';
             position: absolute;
-            left: -20px; /* Adjust based on padding */
+            left: -20px;
             top: 6px;
             width: 12px;
             height: 12px;
@@ -186,6 +197,7 @@
         .tag-food { background-color: #fff3cd; color: #856404; }
         .tag-spot { background-color: #d1ecf1; color: #0c5460; }
         .tag-stay { background-color: #d4edda; color: #155724; }
+        .tag-ticket { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
 
         /* Spot & Food Grid */
         .grid {
@@ -199,6 +211,8 @@
             border-radius: 8px;
             padding: 20px;
             transition: transform 0.2s;
+            background: white;
+            position: relative;
         }
         
         .info-box:hover {
@@ -213,6 +227,7 @@
             margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
         
         .badge {
@@ -227,15 +242,28 @@
             font-size: 0.9rem;
             color: #555;
         }
-
-        .memo-box {
-            background-color: #2c3e50;
-            color: white;
-            border-radius: 8px;
-            padding: 20px;
-            font-size: 0.9rem;
+        
+        /* Link Styles within Info Box */
+        .info-title a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
         }
-        .memo-box strong { color: var(--accent); }
+        .detail-link {
+            font-size: 0.8em;
+            color: var(--accent);
+        }
+        .ref-link {
+            display: block;
+            margin-top: 10px;
+            text-align: right;
+            font-size: 0.85em;
+            color: var(--accent);
+            text-decoration: underline;
+            font-weight: bold;
+        }
 
         footer {
             text-align: center;
@@ -244,6 +272,8 @@
             font-size: 0.8rem;
         }
         
+        a { text-decoration: none; }
+
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
             .container { margin-top: -20px; }
@@ -255,7 +285,7 @@
             .container { margin-top: 0; box-shadow: none; }
             .card { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
             header { background: white; color: black; box-shadow: none; border-bottom: 2px solid #000; }
-            header::after { display: none; }
+            .ticket-box { border: 1px solid #000; background: #fff; }
         }
     </style>
 </head>
@@ -263,32 +293,25 @@
 
 <header>
     <h1>NAGOYA TRIP</h1>
-    <div class="subtitle">History, Culture & Gourmet Guide<br></div>
+    <div class="subtitle">History, Culture & Gourmet Guide<br>歴史と伝統、美食を巡るゆったり旅</div>
 </header>
 
 <div class="container">
 
-    <div class="card" style="background: var(--primary); color: white;">
-        <div style="display: flex; align-items: flex-start;">
-            <div style="font-size: 1.5rem; margin-right: 15px;">💡</div>
-            <div>
-                <strong style="color: var(--accent); display: block; margin-bottom: 5px;">TRAVEL TIPS</strong>
-                <div style="font-size: 0.9rem; opacity: 0.9;">
-                    ・荷物はホテルの無料クロークをフル活用して身軽に。<br>
-                    ・食事時間は混雑状況に合わせて柔軟にずらしてOK。
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="card">
-        <h2>DAY 1 <span style="font-size: 0.9rem; margin-left: auto; color: #888; font-weight: normal;">/ 名古屋市内</span></h2>
+        <h2>DAY 1 <span style="font-size: 0.9rem; margin-left: auto; color: #888; font-weight: normal;">(土) / 名古屋市内</span></h2>
         
+        <div class="ticket-box">
+            <span class="ticket-title">🎫 本日のお得ワザ：ドニチエコきっぷ</span>
+            地下鉄・市バス全線1日乗り放題（大人620円）。<br>
+            移動費がお得になるだけでなく、<strong>名古屋城(100円引)</strong>・<strong>徳川美術館(100円引)</strong>などの窓口で提示すると割引が受けられます。地下鉄券売機で購入しましょう。
+        </div>
+
         <div class="timeline">
             <div class="event">
                 <span class="time">11:00</span>
-                <span class="activity">名古屋駅 到着</span>
-                <div class="detail">コインロッカーではなく、まずホテルへ。</div>
+                <span class="activity">名古屋駅 到着 & きっぷ購入</span>
+                <div class="detail">地下鉄券売機で「ドニチエコきっぷ」を購入。</div>
             </div>
             
             <div class="event">
@@ -309,14 +332,16 @@
                 <span class="time">13:20</span>
                 <span class="activity">観光①：名古屋城</span>
                 <span class="tag tag-spot">History</span>
-                <div class="transport">🚇 名古屋駅 → 地下鉄東山線・名城線 (約20分)</div>
-                <div class="detail">本丸御殿をメインにゆったり見学（約2時間）。</div>
+                <span class="tag tag-ticket">割引対象</span>
+                <div class="transport">🚇 名古屋駅 → 地下鉄名城線 (約20分)</div>
+                <div class="detail">本丸御殿を見学。土日は「おもてなし武将隊」の演武があるかも？</div>
             </div>
 
             <div class="event">
                 <span class="time">15:50</span>
                 <span class="activity">観光②：徳川美術館</span>
                 <span class="tag tag-spot">Art</span>
+                <span class="tag tag-ticket">割引対象</span>
                 <div class="transport">🚌 名古屋城 → 市営バス基幹2 (約20分)</div>
                 <div class="detail">大名文化の至宝を落ち着いて鑑賞。</div>
             </div>
@@ -332,7 +357,7 @@
                 <span class="time">20:00</span>
                 <span class="activity">夜景：ミッドランドスクエア</span>
                 <span class="tag tag-spot">View</span>
-                <div class="detail">スカイプロムナードで地上220mの夜景散策。</div>
+                <div class="detail">スカイプロムナードで夜景散策。</div>
             </div>
             
             <div class="event">
@@ -343,20 +368,27 @@
     </div>
 
     <div class="card">
-        <h2>DAY 2 <span style="font-size: 0.9rem; margin-left: auto; color: #888; font-weight: normal;">/ 犬山・有松</span></h2>
+        <h2>DAY 2 <span style="font-size: 0.9rem; margin-left: auto; color: #888; font-weight: normal;">(日) / 犬山・有松</span></h2>
+        
+        <div class="ticket-box" style="background-color: #e8f4f8; border-color: #0F2350;">
+            <span class="ticket-title" style="color: #0F2350;">⚠️ 本日の移動注意：名鉄線を利用</span>
+            本日は地下鉄ではなく「名鉄」が中心のため、<strong>ドニチエコきっぷは使えません。</strong><br>
+            お手持ちの<strong>ICカード</strong>での移動がスムーズです。<br>
+            混雑回避のため、名鉄特急の<strong>「特別車（ミューチケット +450円）」</strong>で座って移動するのが快適な大人の選択です。
+        </div>
         
         <div class="timeline">
             <div class="event highlight">
                 <span class="time">08:00</span>
                 <span class="activity">モーニング</span>
                 <span class="tag tag-food">Gourmet</span>
-                <div class="detail">「コンパル」などで名古屋の朝文化を体験。</div>
+                <div class="detail">「コンパル」などでエビフライサンド。</div>
             </div>
             
             <div class="event">
                 <span class="time">10:00</span>
                 <span class="activity">チェックアウト & 移動</span>
-                <div class="detail">荷物はホテルに預ける。</div>
+                <div class="detail">荷物はホテルへ預ける。</div>
                 <div class="transport">🚆 名鉄名古屋駅 → 犬山遊園駅 (特急 約35分)</div>
             </div>
 
@@ -364,14 +396,14 @@
                 <span class="time">10:40</span>
                 <span class="activity">観光③：犬山城 & 城下町</span>
                 <span class="tag tag-spot">National Treasure</span>
-                <div class="detail">国宝天守からの絶景と、城下町散策。</div>
+                <div class="detail">国宝天守からの絶景。階段は急なので注意。</div>
             </div>
 
             <div class="event highlight">
                 <span class="time">13:00</span>
-                <span class="activity">昼食：城下町食べ歩き</span>
-                <span class="tag tag-food">Light Meal</span>
-                <div class="detail">串もの、田楽、五平餅など。</div>
+                <span class="activity">昼食：城下町 肉グルメ</span>
+                <span class="tag tag-food">Meat & Light Meal</span>
+                <div class="detail">飛騨牛にぎり、牛タン串、五平餅など、肉好きも満足の食べ歩き。</div>
             </div>
 
             <div class="event">
@@ -390,7 +422,7 @@
             <div class="event">
                 <span class="time">15:30</span>
                 <span class="activity">解散</span>
-                <div class="detail">名古屋駅で荷物をピックアップして帰路へ。</div>
+                <div class="detail">名古屋駅で荷物をピックアップ。お土産に「赤福 銘々箱」もおすすめ。</div>
             </div>
         </div>
     </div>
@@ -399,34 +431,36 @@
         <h2>HIGHLIGHTS & FOOD</h2>
         
         <div class="grid">
-            <a href="nagoya_castle.html" style="text-decoration: none; color: inherit;">
-    <div class="info-box">
-        <div class="info-title">名古屋城 <span class="badge">Day 1</span> <span style="font-size:0.8em; color:#C5A059;">▶ 詳細を見る</span></div>
-        <div class="info-desc">
-            見どころは復元された<strong>本丸御殿</strong>。豪華絢爛な障壁画は圧巻。天守閣は外観のみですが、加藤清正の「清正石」など石垣も見どころ。
-        </div>
-    </div>
-</a>
+            <div class="info-box">
+                <div class="info-title">
+                    <a href="nagoya_castle.html"><span>名古屋城 <span class="badge">Day 1</span></span> <span class="detail-link">▶ 詳細</span></a>
+                </div>
+                <div class="info-desc">
+                    見どころは復元された<strong>本丸御殿</strong>。土日は武将隊にも会えるかも。ドニチエコきっぷで入場料100円OFF。
+                </div>
+            </div>
 
             <div class="info-box">
                 <div class="info-title">徳川美術館 <span class="badge">Day 1</span></div>
                 <div class="info-desc">
-                    尾張徳川家の宝物を展示。『源氏物語絵巻』(国宝)など大名文化の粋を感じられます。隣接する徳川園も時間があればぜひ。
+                    尾張徳川家の宝物を展示。『源氏物語絵巻』(国宝)など。ドニチエコきっぷで入場料100円OFF。
                 </div>
             </div>
 
-<a href="inuyama_castle.html" style="text-decoration: none; color: inherit;">
-    <div class="info-box">
-        <div class="info-title">犬山城 <span class="badge">Day 2</span> <span style="font-size:0.8em; color:#C5A059;">▶ 詳細を見る</span></div>
-        <div class="info-desc">
-            現存最古級の<strong>国宝天守</strong>。階段は急ですが、最上階からの木曽川の眺めは最高です。城下町の三光稲荷神社も人気。
-        </div>
-    </div>
-</a>           
+            <div class="info-box">
+                <div class="info-title">
+                    <a href="inuyama_castle.html"><span>犬山城 <span class="badge">Day 2</span></span> <span class="detail-link">▶ 詳細</span></a>
+                </div>
+                <div class="info-desc">
+                    現存最古級の<strong>国宝天守</strong>。木曽川の絶景は必見。城下町は肉串グルメの宝庫。
+                </div>
+                <a href="12_castles.html" class="ref-link">※参考：現存12天守について</a>
+            </div>
+            
             <div class="info-box">
                 <div class="info-title">有松の街並み <span class="badge">Day 2</span></div>
                 <div class="info-desc">
-                    400年の歴史を持つ絞りの町。東海道の面影を残す商家が立ち並び、フォトジェニックで落ち着いた雰囲気が魅力。
+                    400年の歴史を持つ絞りの町。東海道の面影を残す商家が立ち並び、フォトジェニックで落ち着いた雰囲気。
                 </div>
             </div>
 
@@ -447,10 +481,10 @@
             </div>
             
             <div class="info-box" style="border-left: 3px solid var(--accent);">
-                <div class="info-title">モーニング <span class="badge" style="background:var(--accent)">Morning</span></div>
+                <div class="info-title">犬山肉グルメ <span class="badge" style="background:var(--accent)">Eat out</span></div>
                 <div class="info-desc">
-                    <strong>「コンパル」</strong><br>
-                    レトロな雰囲気でエビフライサンドや小倉トーストを。
+                    <strong>「飛騨牛にぎり・牛タン串」</strong><br>
+                    野菜嫌いでも安心。城下町は肉のワンハンドグルメが豊富です。五平餅もおすすめ。
                 </div>
             </div>
         </div>
@@ -459,7 +493,7 @@
 </div>
 
 <footer>
-    &copy; 2025 Nagoya Trip Guide designed by AI
+    &copy; NAGOYA TRIP GUIDE designed by AI
 </footer>
 
 </body>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>現存十二天守一覧</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #222;
+            --gold: #C5A059;
+            --silver: #7a7a7a;
+            --bg: #F5F5F7;
+            --text: #333;
+            --national-treasure: #8E0000; /* 国宝用の赤 */
+        }
+        body { margin: 0; padding: 0; font-family: "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+        h1, h2, h3 { font-family: "Shippori Mincho", serif; }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--gold);
+        }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 0.1em; }
+        header p { opacity: 0.8; margin-top: 10px; font-size: 0.9rem; }
+
+        /* Container */
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        
+        .intro-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .intro-box p { margin: 0; }
+
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 50px 0 30px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 20px;
+        }
+        
+        /* National Treasure Section */
+        .nt-title { color: var(--national-treasure); border-bottom: 3px solid var(--gold); }
+        .nt-card {
+            background: white;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2);
+            transition: transform 0.2s;
+        }
+        .nt-card:hover { transform: translateY(-5px); }
+        .nt-img { width: 150px; background: #ddd; min-height: 150px; object-fit: cover; }
+        .nt-content { padding: 20px; flex: 1; }
+        
+        .badge-nt {
+            background: var(--national-treasure);
+            color: var(--gold);
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .badge-visit {
+            background: var(--gold);
+            color: white;
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            border-radius: 20px;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        /* ICP Section */
+        .icp-title { color: var(--silver); border-bottom: 3px solid var(--silver); }
+        .grid-icp {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .icp-card {
+            background: white;
+            border-top: 5px solid var(--silver);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        h3 { margin: 0 0 10px; font-size: 1.4rem; }
+        .location { font-size: 0.85rem; color: #666; display: block; margin-bottom: 10px; }
+        .desc { font-size: 0.95rem; line-height: 1.6; }
+
+        .back-btn { display: block; width: 200px; margin: 50px auto; text-align: center; padding: 15px; background: var(--primary); color: white; text-decoration: none; font-weight: bold; border-radius: 50px; transition: 0.3s; }
+        .back-btn:hover { background: var(--gold); color: var(--primary); }
+
+        @media (max-width: 600px) {
+            .nt-card { flex-direction: column; }
+            .nt-img { width: 100%; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>現存十二天守</h1>
+    <p>Original 12 Tenshu Castles of Japan</p>
+</header>
+
+<div class="container">
+    <div class="intro-box">
+        <p>
+            江戸時代以前に建造され、現代まで保存されている天守は、日本全国でわずか<strong>12城</strong>しかありません。<br>
+            これらは「現存天守」と呼ばれ、日本の城郭建築の真髄を伝える貴重な文化遺産です。<br>
+            そのうち5城が<strong>国宝</strong>、7城が<strong>重要文化財</strong>に指定されています。
+        </p>
+    </div>
+
+    <h2 class="section-title nt-title">国宝 5城</h2>
+    
+    <div class="nt-card" style="border-color: var(--national-treasure); background: #fffcfc;">
+        <div class="nt-content">
+            <h3><span class="badge-nt">国宝</span>犬山城<span class="badge-visit">今回訪問！</span></h3>
+            <span class="location">愛知県犬山市</span>
+            <p class="desc">
+                <strong>「現存最古級の望楼型天守」</strong><br>
+                木曽川のほとりの小高い山の上に建てられた、後堅固の名城。古式ゆかしい外観と、実戦的な防御機構が特徴。
+            </p>
+        </div>
+    </div>
+
+    <div class="nt-card">
+        <div class="nt-content">
+            <h3><span class="badge-nt">国宝</span>姫路城</h3>
+            <span class="location">兵庫県姫路市</span>
+            <p class="desc">
+                <strong>「白鷺城」</strong><br>
+                世界遺産。白漆喰総塗籠造りの白壁が美しく、現存天守の中で最大規模を誇る。
+            </p>
+        </div>
+    </div>
+
+    <div class="nt-card">
+        <div class="nt-content">
+            <h3><span class="badge-nt">国宝</span>松本城</h3>
+            <span class="location">長野県松本市</span>
+            <p class="desc">
+                <strong>「烏城（からすじょう）」</strong><br>
+                漆黒の下見板張りが特徴。北アルプスを背景に建つ、連結複合式の五重天守。
+            </p>
+        </div>
+    </div>
+
+    <div class="nt-card">
+        <div class="nt-content">
+            <h3><span class="badge-nt">国宝</span>彦根城</h3>
+            <span class="location">滋賀県彦根市</span>
+            <p class="desc">
+                <strong>「井伊家の居城」</strong><br>
+                多彩な破風（はふ）による装飾的な外観と、牛蒡積み（ごぼうづみ）の石垣が有名。
+            </p>
+        </div>
+    </div>
+
+    <div class="nt-card">
+        <div class="nt-content">
+            <h3><span class="badge-nt">国宝</span>松江城</h3>
+            <span class="location">島根県松江市</span>
+            <p class="desc">
+                <strong>「千鳥城」</strong><br>
+                実戦本位の質実剛健な造り。2階分の通し柱を多用した独自の建築技法を持つ。
+            </p>
+        </div>
+    </div>
+
+    <h2 class="section-title icp-title">重要文化財 7城</h2>
+    <div class="grid-icp">
+        <div class="icp-card">
+            <h3>弘前城</h3>
+            <span class="location">青森県弘前市</span>
+            <p class="desc">東北唯一の現存天守。桜の名所としても有名。</p>
+        </div>
+        <div class="icp-card">
+            <h3>丸岡城</h3>
+            <span class="location">福井県坂井市</span>
+            <p class="desc">最古の建築様式を持つとも言われる。寒冷地特有の石瓦が特徴。</p>
+        </div>
+        <div class="icp-card">
+            <h3>備中松山城</h3>
+            <span class="location">岡山県高梁市</span>
+            <p class="desc">唯一の現存「山城」。雲海に浮かぶ姿は幻想的。</p>
+        </div>
+        <div class="icp-card">
+            <h3>丸亀城</h3>
+            <span class="location">香川県丸亀市</span>
+            <p class="desc">「石垣の名城」。日本一の高さを誇る石垣の上に鎮座する。</p>
+        </div>
+        <div class="icp-card">
+            <h3>伊予松山城</h3>
+            <span class="location">愛媛県松山市</span>
+            <p class="desc">葵の紋が輝く連立式天守。リフトやロープウェイで登城する。</p>
+        </div>
+        <div class="icp-card">
+            <h3>宇和島城</h3>
+            <span class="location">愛媛県宇和島市</span>
+            <p class="desc">築城の名手・藤堂高虎による設計。不等辺五角形の縄張りが巧み。</p>
+        </div>
+        <div class="icp-card">
+            <h3>高知城</h3>
+            <span class="location">高知県高知市</span>
+            <p class="desc">本丸御殿と天守が両方現存している唯一の城。</p>
+        </div>
+    </div>
+
+    <a href="shiori.html" class="back-btn">旅のしおりに戻る</a>
+</div>
+
+</body>
+</html>
