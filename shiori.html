@@ -265,6 +265,35 @@
             font-weight: bold;
         }
 
+        /* Gourmet List Style */
+        .gourmet-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            font-size: 0.85rem;
+            border-top: 1px dashed #ddd;
+            padding-top: 10px;
+        }
+        .gourmet-list li {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: baseline;
+        }
+        .gourmet-list li::before {
+            content: '●';
+            color: var(--accent);
+            font-size: 0.7em;
+            margin-right: 8px;
+        }
+        .rec-tag {
+            font-size: 0.7em;
+            background: #f0f0f0;
+            color: #666;
+            padding: 1px 5px;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+
         footer {
             text-align: center;
             padding: 40px 0;
@@ -323,9 +352,12 @@
 
             <div class="event highlight">
                 <span class="time">12:00</span>
-                <span class="activity">昼食：ひつまぶし</span>
+                <span class="activity">昼食：味噌煮込みうどん</span>
                 <span class="tag tag-food">Gourmet</span>
-                <div class="detail">「まるや本店」など名駅周辺で。</div>
+                <div class="detail">
+                    「山本屋本店」または「山本屋総本家」。<br>
+                    <span style="font-size:0.85em; color:#666;">※混雑時は手羽先(世界の山ちゃん)や台湾ラーメン(味仙)への変更も検討。</span>
+                </div>
             </div>
 
             <div class="event">
@@ -348,9 +380,12 @@
 
             <div class="event highlight">
                 <span class="time">18:00</span>
-                <span class="activity">夕食：味噌煮込みうどん</span>
-                <span class="tag tag-food">Gourmet</span>
-                <div class="detail">「山本屋本店」でまろやかな味わいを堪能。</div>
+                <span class="activity">夕食：ひつまぶし</span>
+                <span class="tag tag-food">Must Eat</span>
+                <div class="detail">
+                    <strong>【重要】混雑必至のため予約推奨</strong><br>
+                    「しら河」「備長」など。予約がない場合は少し時間をずらして訪問を。
+                </div>
             </div>
 
             <div class="event">
@@ -431,6 +466,37 @@
         <h2>HIGHLIGHTS & FOOD</h2>
         
         <div class="grid">
+            <div class="info-box" style="border-left: 3px solid var(--accent);">
+                <div class="info-title">味噌煮込みうどん <span class="badge" style="background:var(--accent)">Lunch</span></div>
+                <div class="info-desc">
+                    「山本屋本店」のまろやかな味わいがおすすめですが、混雑時は以下も候補に。
+                    <ul class="gourmet-list">
+                        <li><strong>山本屋総本家:</strong> 濃厚でパンチのある味噌味。</li>
+                        <li><strong>世界の山ちゃん:</strong> 手羽先とビールで昼飲みも◎。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box" style="border-left: 3px solid var(--accent);">
+                <div class="info-title">ひつまぶし <span class="badge" style="background:var(--accent)">Dinner</span></div>
+                <div class="info-desc">
+                    絶対に外せない名古屋メシ。混雑回避のため<strong>予約</strong>が賢明です。
+                    <ul class="gourmet-list">
+                        <li><strong>しら河 (名駅店):</strong> <span class="rec-tag">Web予約可</span> 地元で愛される味。</li>
+                        <li><strong>ひつまぶし備長:</strong> <span class="rec-tag">関西風</span> パリッと香ばしい地焼き。</li>
+                        <li><strong>まるや本店:</strong> <span class="rec-tag">行列必至</span> 薬味との相性が抜群。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-box" style="border-left: 3px solid var(--accent);">
+                <div class="info-title">犬山肉グルメ <span class="badge" style="background:var(--accent)">Eat out</span></div>
+                <div class="info-desc">
+                    <strong>「飛騨牛にぎり・牛タン串」</strong><br>
+                    野菜嫌いでも安心。城下町は肉のワンハンドグルメが豊富です。五平餅もおすすめ。
+                </div>
+            </div>
+
             <div class="info-box">
                 <div class="info-title">
                     <a href="nagoya_castle.html"><span>名古屋城 <span class="badge">Day 1</span></span> <span class="detail-link">▶ 詳細</span></a>
@@ -461,30 +527,6 @@
                 <div class="info-title">有松の街並み <span class="badge">Day 2</span></div>
                 <div class="info-desc">
                     400年の歴史を持つ絞りの町。東海道の面影を残す商家が立ち並び、フォトジェニックで落ち着いた雰囲気。
-                </div>
-            </div>
-
-            <div class="info-box" style="border-left: 3px solid var(--accent);">
-                <div class="info-title">ひつまぶし <span class="badge" style="background:var(--accent)">Lunch</span></div>
-                <div class="info-desc">
-                    <strong>「まるや本店」</strong><br>
-                    1.そのまま 2.薬味で 3.お茶漬けで。3度美味しい名古屋の王道グルメ。
-                </div>
-            </div>
-
-            <div class="info-box" style="border-left: 3px solid var(--accent);">
-                <div class="info-title">味噌煮込みうどん <span class="badge" style="background:var(--accent)">Dinner</span></div>
-                <div class="info-desc">
-                    <strong>「山本屋本店」</strong><br>
-                    ご希望の「まろやか味」。土鍋の蓋を取り皿にして、フーフーしながらどうぞ。
-                </div>
-            </div>
-            
-            <div class="info-box" style="border-left: 3px solid var(--accent);">
-                <div class="info-title">犬山肉グルメ <span class="badge" style="background:var(--accent)">Eat out</span></div>
-                <div class="info-desc">
-                    <strong>「飛騨牛にぎり・牛タン串」</strong><br>
-                    野菜嫌いでも安心。城下町は肉のワンハンドグルメが豊富です。五平餅もおすすめ。
                 </div>
             </div>
         </div>
