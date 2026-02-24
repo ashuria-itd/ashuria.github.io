@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAGOYA TRIP GUIDE</title>
+    <title>NAGOYA & INUYAMA TRIP</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
 
@@ -43,7 +43,7 @@
 
         h1 {
             margin: 0;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             border-bottom: 2px solid var(--accent);
@@ -275,15 +275,16 @@
             padding-top: 10px;
         }
         .gourmet-list li {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             display: flex;
-            align-items: baseline;
+            align-items: flex-start;
         }
         .gourmet-list li::before {
             content: '●';
             color: var(--accent);
             font-size: 0.7em;
             margin-right: 8px;
+            margin-top: 3px;
         }
         .rec-tag {
             font-size: 0.7em;
@@ -292,6 +293,7 @@
             padding: 1px 5px;
             border-radius: 3px;
             margin-left: 5px;
+            white-space: nowrap;
         }
 
         footer {
@@ -308,21 +310,13 @@
             .container { margin-top: -20px; }
             .card { padding: 20px; }
         }
-        
-        @media print {
-            body { background: white; }
-            .container { margin-top: 0; box-shadow: none; }
-            .card { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
-            header { background: white; color: black; box-shadow: none; border-bottom: 2px solid #000; }
-            .ticket-box { border: 1px solid #000; background: #fff; }
-        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>NAGOYA TRIP</h1>
-    <div class="subtitle">History, Culture & Gourmet Guide<br>歴史と伝統、美食を巡るゆったり旅</div>
+    <h1>NAGOYA & INUYAMA</h1>
+    <div class="subtitle">History & Gourmet Guide<br>名城と絶品お肉グルメを巡るゆったり旅</div>
 </header>
 
 <div class="container">
@@ -333,14 +327,13 @@
         <div class="ticket-box">
             <span class="ticket-title">🎫 本日のお得ワザ：ドニチエコきっぷ</span>
             地下鉄・市バス全線1日乗り放題（大人620円）。<br>
-            移動費がお得になるだけでなく、<strong>名古屋城(100円引)</strong>・<strong>徳川美術館(100円引)</strong>などの窓口で提示すると割引が受けられます。地下鉄券売機で購入しましょう。
+            移動費がお得になるだけでなく、<strong>名古屋城(100円引)</strong>・<strong>徳川美術館(100円引)</strong>などの窓口で提示すると割引が受けられます。まずは地下鉄券売機で購入しましょう。
         </div>
 
         <div class="timeline">
             <div class="event">
                 <span class="time">11:00</span>
                 <span class="activity">名古屋駅 到着 & きっぷ購入</span>
-                <div class="detail">地下鉄券売機で「ドニチエコきっぷ」を購入。</div>
             </div>
             
             <div class="event">
@@ -350,27 +343,26 @@
                 <div class="detail">身軽になって観光スタート。</div>
             </div>
 
+            <div class="event">
+                <span class="time">12:10</span>
+                <span class="activity">観光①：名古屋城</span>
+                <span class="tag tag-spot">History</span>
+                <span class="tag tag-ticket">割引対象</span>
+                <div class="transport">🚇 名古屋駅 → 地下鉄名城線「名古屋城駅」 (約20分)</div>
+                <div class="detail">本丸御殿をじっくり見学。お昼前なので比較的空いている時間を狙えます。</div>
+            </div>
+
             <div class="event highlight">
-                <span class="time">12:00</span>
-                <span class="activity">昼食：味噌煮込みうどん</span>
-                <span class="tag tag-food">Gourmet</span>
+                <span class="time">14:00</span>
+                <span class="activity">遅めの昼食：ひつまぶし</span>
+                <span class="tag tag-food">Must Eat</span>
                 <div class="detail">
-                    「山本屋本店」または「山本屋総本家」。<br>
-                    <span style="font-size:0.85em; color:#666;">※混雑時は手羽先(世界の山ちゃん)や台湾ラーメン(味仙)への変更も検討。</span>
+                    名古屋城のすぐ隣「金鯱横丁」などでお昼。ピークを過ぎているので入りやすいです。
                 </div>
             </div>
 
             <div class="event">
-                <span class="time">13:20</span>
-                <span class="activity">観光①：名古屋城</span>
-                <span class="tag tag-spot">History</span>
-                <span class="tag tag-ticket">割引対象</span>
-                <div class="transport">🚇 名古屋駅 → 地下鉄名城線 (約20分)</div>
-                <div class="detail">本丸御殿を見学。土日は「おもてなし武将隊」の演武があるかも？</div>
-            </div>
-
-            <div class="event">
-                <span class="time">15:50</span>
+                <span class="time">15:30</span>
                 <span class="activity">観光②：徳川美術館</span>
                 <span class="tag tag-spot">Art</span>
                 <span class="tag tag-ticket">割引対象</span>
@@ -379,85 +371,77 @@
             </div>
 
             <div class="event highlight">
-                <span class="time">18:00</span>
-                <span class="activity">夕食：ひつまぶし</span>
-                <span class="tag tag-food">Must Eat</span>
+                <span class="time">18:30</span>
+                <span class="activity">夕食：名古屋コーチン鍋</span>
+                <span class="tag tag-food">Gourmet</span>
                 <div class="detail">
-                    <strong>【重要】混雑必至のため予約推奨</strong><br>
-                    「しら河」「備長」など。予約がない場合は少し時間をずらして訪問を。
+                    居酒屋にて軽めの夕食。濃厚な鶏の旨味を堪能できるお鍋で温まりましょう。
                 </div>
             </div>
 
             <div class="event">
-                <span class="time">20:00</span>
+                <span class="time">20:30</span>
                 <span class="activity">夜景：ミッドランドスクエア</span>
                 <span class="tag tag-spot">View</span>
                 <div class="detail">スカイプロムナードで夜景散策。</div>
             </div>
             
             <div class="event">
-                <span class="time">22:00</span>
-                <span class="activity">ホテル泊</span>
+                <span class="time">21:30</span>
+                <span class="activity">ホテル チェックイン</span>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <h2>DAY 2 <span style="font-size: 0.9rem; margin-left: auto; color: #888; font-weight: normal;">(日) / 犬山・有松</span></h2>
+        <h2>DAY 2 <span style="font-size: 0.9rem; margin-left: auto; color: #888; font-weight: normal;">(日) / 犬山城下町</span></h2>
         
         <div class="ticket-box" style="background-color: #e8f4f8; border-color: #0F2350;">
             <span class="ticket-title" style="color: #0F2350;">⚠️ 本日の移動注意：名鉄線を利用</span>
-            本日は地下鉄ではなく「名鉄」が中心のため、<strong>ドニチエコきっぷは使えません。</strong><br>
+            本日は地下鉄ではなく「名鉄」が中心のため、ドニチエコきっぷは使えません。<br>
             お手持ちの<strong>ICカード</strong>での移動がスムーズです。<br>
-            混雑回避のため、名鉄特急の<strong>「特別車（ミューチケット +450円）」</strong>で座って移動するのが快適な大人の選択です。
+            名鉄特急の<strong>「特別車（ミューチケット +450円）」</strong>でゆったり座って移動するのがおすすめです。
         </div>
         
         <div class="timeline">
             <div class="event highlight">
                 <span class="time">08:00</span>
-                <span class="activity">モーニング</span>
-                <span class="tag tag-food">Gourmet</span>
-                <div class="detail">「コンパル」などでエビフライサンド。</div>
+                <span class="activity">朝食：ホテルビュッフェ</span>
+                <span class="tag tag-stay">Breakfast</span>
+                <div class="detail">ホテルでしっかり朝食をとって出発。</div>
             </div>
             
             <div class="event">
-                <span class="time">10:00</span>
+                <span class="time">09:30</span>
                 <span class="activity">チェックアウト & 移動</span>
                 <div class="detail">荷物はホテルへ預ける。</div>
                 <div class="transport">🚆 名鉄名古屋駅 → 犬山遊園駅 (特急 約35分)</div>
             </div>
 
             <div class="event">
-                <span class="time">10:40</span>
-                <span class="activity">観光③：犬山城 & 城下町</span>
+                <span class="time">10:30</span>
+                <span class="activity">観光③：犬山城</span>
                 <span class="tag tag-spot">National Treasure</span>
-                <div class="detail">国宝天守からの絶景。階段は急なので注意。</div>
+                <div class="detail">国宝天守からの絶景。本日はここでゆっくり時間を取ります。</div>
             </div>
 
             <div class="event highlight">
-                <span class="time">13:00</span>
-                <span class="activity">昼食：城下町 肉グルメ</span>
+                <span class="time">12:30</span>
+                <span class="activity">昼食・散策：城下町 お肉グルメ</span>
                 <span class="tag tag-food">Meat & Light Meal</span>
-                <div class="detail">飛騨牛にぎり、牛タン串、五平餅など、肉好きも満足の食べ歩き。</div>
+                <div class="detail">飛騨牛にぎり、牛タン串など、城下町はお肉のワンハンドグルメが豊富です。</div>
             </div>
 
             <div class="event">
-                <span class="time">13:30</span>
-                <span class="activity">移動：犬山 → 有松</span>
-                <div class="transport">🚆 名鉄犬山線 → 名古屋本線 (約1時間)</div>
+                <span class="time">14:00</span>
+                <span class="activity">移動：犬山 → 名古屋駅</span>
+                <div class="transport">🚆 名鉄犬山線 (特急 約30分)</div>
             </div>
 
             <div class="event">
-                <span class="time">14:30</span>
-                <span class="activity">観光④：有松の街並み</span>
-                <span class="tag tag-spot">Heritage</span>
-                <div class="detail">日本遺産・有松絞りの古い町並みを散策。</div>
-            </div>
-
-            <div class="event">
-                <span class="time">15:30</span>
+                <span class="time">15:00</span>
                 <span class="activity">解散</span>
-                <div class="detail">名古屋駅で荷物をピックアップ。お土産に「赤福 銘々箱」もおすすめ。</div>
+                <div class="detail">名古屋駅で荷物をピックアップして帰路へ。お疲れ様でした！</div>
             </div>
         </div>
     </div>
@@ -467,33 +451,32 @@
         
         <div class="grid">
             <div class="info-box" style="border-left: 3px solid var(--accent);">
-                <div class="info-title">味噌煮込みうどん <span class="badge" style="background:var(--accent)">Lunch</span></div>
+                <div class="info-title">ひつまぶし (名古屋城周辺) <span class="badge" style="background:var(--accent)">Lunch</span></div>
                 <div class="info-desc">
-                    「山本屋本店」のまろやかな味わいがおすすめですが、混雑時は以下も候補に。
+                    城見学後、14時頃の遅めランチに最適な候補です。
                     <ul class="gourmet-list">
-                        <li><strong>山本屋総本家:</strong> 濃厚でパンチのある味噌味。</li>
-                        <li><strong>世界の山ちゃん:</strong> 手羽先とビールで昼飲みも◎。</li>
+                        <li><strong>ひつまぶし名古屋備長 金鯱横丁店:</strong> <br>名古屋城正門すぐ。パリッと香ばしい地焼き。移動ゼロで最高に便利です。</li>
+                        <li><strong>しら河 浄心本店:</strong> <br>城から少し歩くかタクシーで。地元民に愛される名店でタレが絶品。</li>
                     </ul>
                 </div>
             </div>
 
             <div class="info-box" style="border-left: 3px solid var(--accent);">
-                <div class="info-title">ひつまぶし <span class="badge" style="background:var(--accent)">Dinner</span></div>
+                <div class="info-title">名古屋コーチン鍋 <span class="badge" style="background:var(--accent)">Dinner</span></div>
                 <div class="info-desc">
-                    絶対に外せない名古屋メシ。混雑回避のため<strong>予約</strong>が賢明です。
+                    食事メインでも気兼ねなく楽しめる名駅周辺の居酒屋候補です。お酒がなくても濃厚なお肉の旨味で大満足できます。
                     <ul class="gourmet-list">
-                        <li><strong>しら河 (名駅店):</strong> <span class="rec-tag">Web予約可</span> 地元で愛される味。</li>
-                        <li><strong>ひつまぶし備長:</strong> <span class="rec-tag">関西風</span> パリッと香ばしい地焼き。</li>
-                        <li><strong>まるや本店:</strong> <span class="rec-tag">行列必至</span> 薬味との相性が抜群。</li>
+                        <li><strong>鳥開総本家 (名駅南店など):</strong> <br>鶏肉のプロフェッショナル。濃厚な水炊き鍋と手羽先が絶品。</li>
+                        <li><strong>樞 (くるる) 名駅店:</strong> <br>落ち着いた和空間で、純系名古屋コーチンのひきずり鍋（すき焼き）などが楽しめます。</li>
                     </ul>
                 </div>
             </div>
             
             <div class="info-box" style="border-left: 3px solid var(--accent);">
-                <div class="info-title">犬山肉グルメ <span class="badge" style="background:var(--accent)">Eat out</span></div>
+                <div class="info-title">犬山 城下町グルメ <span class="badge" style="background:var(--accent)">Day 2</span></div>
                 <div class="info-desc">
-                    <strong>「飛騨牛にぎり・牛タン串」</strong><br>
-                    野菜嫌いでも安心。城下町は肉のワンハンドグルメが豊富です。五平餅もおすすめ。
+                    <strong>「飛騨牛串・牛タン串」</strong><br>
+                    城下町はお肉の食べ歩きが充実。香ばしい五平餅もおすすめです。時間をたっぷりとって楽しんでください。
                 </div>
             </div>
 
@@ -502,7 +485,7 @@
                     <a href="nagoya_castle.html"><span>名古屋城 <span class="badge">Day 1</span></span> <span class="detail-link">▶ 詳細</span></a>
                 </div>
                 <div class="info-desc">
-                    見どころは復元された<strong>本丸御殿</strong>。土日は武将隊にも会えるかも。ドニチエコきっぷで入場料100円OFF。
+                    見どころは復元された<strong>本丸御殿</strong>。豪華絢爛な障壁画は圧巻。ドニチエコきっぷで入場料100円OFF。
                 </div>
             </div>
 
@@ -518,16 +501,9 @@
                     <a href="inuyama_castle.html"><span>犬山城 <span class="badge">Day 2</span></span> <span class="detail-link">▶ 詳細</span></a>
                 </div>
                 <div class="info-desc">
-                    現存最古級の<strong>国宝天守</strong>。木曽川の絶景は必見。城下町は肉串グルメの宝庫。
+                    現存最古級の<strong>国宝天守</strong>。木曽川の絶景は必見。
                 </div>
                 <a href="12_castles.html" class="ref-link">※参考：現存12天守について</a>
-            </div>
-            
-            <div class="info-box">
-                <div class="info-title">有松の街並み <span class="badge">Day 2</span></div>
-                <div class="info-desc">
-                    400年の歴史を持つ絞りの町。東海道の面影を残す商家が立ち並び、フォトジェニックで落ち着いた雰囲気。
-                </div>
             </div>
         </div>
     </div>
